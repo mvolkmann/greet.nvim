@@ -6,10 +6,10 @@ vim.api.nvim_create_user_command(
     local greet = require("greet").greet
 
     -- Get the first argument.
-    local arg1 = opts.fargs[1] or ""
+    local arg1 = opts.fargs[1]
 
     -- Remove surrounding quotes.
-    local unquoted = arg1:gsub('"(%w*)"', "%1")
+    local unquoted = arg1 and arg1:gsub('"(%w*)"', "%1")
 
     greet(unquoted or arg1)
   end,
